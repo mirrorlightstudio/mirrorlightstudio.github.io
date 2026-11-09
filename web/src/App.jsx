@@ -188,7 +188,7 @@ function Section({ title, children }) {
 }
 
 function Privacy() {
-  const summary = ['No account needed', 'No servers of our own', 'Ads by Google AdMob', 'Anonymous gameplay stats']
+  const summary = ['No account needed', 'Progress stays on your device', 'Ads by Google AdMob', 'Anonymous gameplay stats']
   return (
     <section id="privacy" className="border-t border-border/60 bg-card/30">
       <div className="mx-auto max-w-3xl px-5 py-20">
@@ -205,7 +205,7 @@ function Privacy() {
             </p>
 
             <Section title="Information stored on your device">
-              <p>Your progress (rooms completed, stars, hearts, lantern colours, secrets found and settings) is saved on your device. A backup copy is kept in the app's own storage on the same device, so progress isn't lost if the phone clears space. We do not run servers that collect this information, and the game does not ask for your name, email address, contacts or precise location.</p>
+              <p>Your progress (rooms completed, stars, hearts, lantern colours, secrets found and settings) is saved on your device. A backup copy is kept in the app's own storage on the same device, so progress isn't lost if the phone clears space. This progress stays on your device: we do not run our own servers, and the game does not ask for your name, email address, contacts or precise location. The services listed below (Google AdMob, Google Analytics for Firebase and RevenueCat) run on their own servers.</p>
             </Section>
 
             <Section title="Advertising">
