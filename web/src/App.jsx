@@ -1,8 +1,9 @@
-import { ShieldCheck, Footprints, Sparkles, KeyRound, Languages, WifiOff, Mail, Smartphone, Clock, CalendarDays } from 'lucide-react'
+import { ShieldCheck, Footprints, Sparkles, KeyRound, Languages, WifiOff, Mail, Smartphone, CalendarDays } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 
+const APPSTORE_URL = 'https://apps.apple.com/app/id6819255416'
 const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.ronitgupta.lumenvault'
 const EMAIL = 'mirrorlightstudio@gmail.com'
 
@@ -65,9 +66,9 @@ function StoreButtons() {
       <Button size="lg" href={PLAY_URL}>
         <Smartphone /> Get it on Google Play
       </Button>
-      <span className="inline-flex h-11 items-center gap-2 rounded-lg border border-dashed border-border px-5 text-sm text-muted-foreground">
-        <Clock className="size-4" /> App Store: coming soon
-      </span>
+      <Button size="lg" variant="outline" href={APPSTORE_URL}>
+        <Smartphone /> Download on the App Store
+      </Button>
     </div>
   )
 }
@@ -78,7 +79,7 @@ function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pt-14 pb-16 md:grid-cols-[1.15fr_1fr] md:pt-24 md:pb-24">
         <div className="relative z-10">
           <Badge variant="outline" className="mb-6 gap-1.5 border-primary/40 bg-primary/10 px-3 py-1 text-primary">
-            <Sparkles /> Lumen Vault is out now on Android
+            <Sparkles /> Lumen Vault is out now on Android and iPhone
           </Badge>
           <h1 className="font-display text-4xl leading-[1.1] font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
             Bend the light.<br />
