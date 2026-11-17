@@ -15,7 +15,7 @@ const worlds = [
 ]
 
 const features = [
-  { icon: ShieldCheck, title: 'Every room is solvable', text: 'Each of the 160 rooms is checked by a solver, and they get harder as you go.' },
+  { icon: ShieldCheck, title: 'Every room is solvable', text: 'Each of the 200 rooms is checked by a solver, and they get harder as you go.' },
   { icon: Footprints, title: 'Think before you move', text: 'Creatures step when you step. Limited sparks and five hearts make every move count.' },
   { icon: Sparkles, title: 'New tricks each world', text: 'Crumbling floors, prisms, ice, clockwork mirrors and pressure-plate gates.' },
   { icon: KeyRound, title: 'Secrets to find', text: 'Five hidden easter eggs unlock secret lantern colours.' },
@@ -86,7 +86,7 @@ function Hero() {
             <span className="bg-gradient-to-r from-primary via-[oklch(0.78_0.18_40)] to-laser bg-clip-text text-transparent">Escape the vault.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            Mirrorlight Studio makes small puzzle games about light, patience and clever moves. Our first game, Lumen Vault, is a laser escape puzzle with 160 rooms across eight worlds.
+            Mirrorlight Studio makes small puzzle games about light, patience and clever moves. Our first game, Lumen Vault, is a laser escape puzzle with 200 rooms across ten worlds.
           </p>
           <div className="mt-8"><StoreButtons /></div>
         </div>
@@ -109,7 +109,7 @@ function Hero() {
 }
 
 function Stats() {
-  const items = [['160', 'rooms'], ['8', 'worlds'], ['1', 'new room a day'], ['10', 'languages']]
+  const items = [['200', 'rooms'], ['10', 'worlds'], ['1', 'new room a day'], ['10', 'languages']]
   return (
     <div className="border-y border-border/60 bg-card/40">
       <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-5 py-8 sm:grid-cols-4">
