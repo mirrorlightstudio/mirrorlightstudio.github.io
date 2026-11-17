@@ -188,46 +188,88 @@ function Section({ title, children }) {
   )
 }
 
-function Privacy() {
-  const summary = ['No account needed', 'Progress stays on your device', 'Ads by Google AdMob', 'Anonymous gameplay stats']
+function GamePolicy({ id, name, summary, intro, children }) {
   return (
-    <section id="privacy" className="border-t border-border/60 bg-card/30">
-      <div className="mx-auto max-w-3xl px-5 py-20">
-        <h2 className="font-display text-3xl font-bold">Privacy policy for Lumen Vault</h2>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: November 8, 2026</p>
-        <div className="mt-6 flex flex-wrap gap-2">
+    <Card id={id} className="mt-8 scroll-mt-20 bg-background/60">
+      <CardHeader>
+        <CardTitle className="font-display text-2xl">{name}</CardTitle>
+        <div className="mt-2 flex flex-wrap gap-2">
           {summary.map(s => <Badge key={s} variant="outline" className="px-2.5 py-1 text-sm font-normal text-muted-foreground">{s}</Badge>)}
         </div>
+      </CardHeader>
+      <CardContent className="space-y-8 leading-relaxed">
+        <p className="text-muted-foreground">{intro}</p>
+        {children}
+      </CardContent>
+    </Card>
+  )
+}
 
-        <Card className="mt-8 bg-background/60">
+const ADMOB_TEXT = 'The game shows ads provided by Google AdMob. To show and measure ads, AdMob may collect your device\'s advertising ID, approximate location based on your IP address, and information about how you interact with ads and the app. Where required by law, you are asked for consent before personalised ads are shown.'
+
+function Privacy() {
+  const games = [['#privacy-lumen-vault', 'Lumen Vault'], ['#privacy-knuckle-highway', 'Knuckle Highway']]
+  return (
+    <section id="privacy" className="scroll-mt-16 border-t border-border/60 bg-card/30">
+      <div className="mx-auto max-w-3xl px-5 py-20">
+        <h2 className="font-display text-3xl font-bold">Privacy policy</h2>
+        <p className="mt-2 text-sm text-muted-foreground">Last updated: November 17, 2026</p>
+        <p className="mt-6 leading-relaxed text-muted-foreground">
+          This policy covers every game made by Mirrorlight Studio (“we”, “us”). Each game has its own section below, because each one uses different services. The last section applies to all of our games.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-2">
+          {games.map(([href, name]) => <Button key={href} variant="outline" size="sm" href={href}>{name}</Button>)}
+          <Button variant="outline" size="sm" href="#privacy-all">All games</Button>
+        </div>
+
+        <GamePolicy id="privacy-lumen-vault" name="Lumen Vault"
+          summary={['No account needed', 'Progress stays on your device', 'Ads by Google AdMob', 'Anonymous gameplay stats']}
+          intro="Lumen Vault is our laser escape puzzle for Android, iPhone and iPad. This section explains what information it uses and why.">
+          <Section title="Information stored on your device">
+            <p>Your progress (rooms completed, stars, hearts, lantern colours, secrets found and settings) is saved on your device. A backup copy is kept in the app's own storage on the same device, so progress isn't lost if the phone clears space. This progress stays on your device: we do not run our own servers for this game, and the game does not ask for your name, email address, contacts or precise location. The services listed below (Google AdMob, Google Analytics for Firebase and RevenueCat) run on their own servers.</p>
+          </Section>
+          <Section title="Advertising">
+            <p>{ADMOB_TEXT}</p>
+            <p>On iPhone and iPad, the game asks your permission before your device's advertising identifier can be used (App Tracking Transparency). If you choose “Ask App Not to Track”, you still see ads, but they are not personalised.</p>
+            <p>Learn more at <a href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a>.</p>
+          </Section>
+          <Section title="Gameplay statistics">
+            <p>From version 1.3, the game sends anonymous gameplay events, such as when a room is started, won or failed, to Google Analytics for Firebase. This shows us which rooms are too hard so we can improve them. Firebase may also receive basic device information such as device model, operating system version, approximate region and an app instance ID. Collection of the advertising ID by Firebase and ad personalisation signals are turned off, and these statistics are not linked to your name.</p>
+            <p>We also use Firebase Remote Config to adjust game settings, such as how often ads appear, without an app update. Learn more at <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>.</p>
+          </Section>
+          <Section title="In-app purchases">
+            <p>Purchases are processed by Google Play on Android and by the App Store on iPhone and iPad. We use RevenueCat to confirm purchases and restore them on a new device. RevenueCat receives an anonymous app user ID and your purchase history, but not your payment details. Learn more at <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a>.</p>
+          </Section>
+          <Section title="Children">
+            <p>The game is suitable for all ages but is not directed at children under 13. If you believe a child has shared personal information with us, contact us and we will help remove it.</p>
+          </Section>
+        </GamePolicy>
+
+        <GamePolicy id="privacy-knuckle-highway" name="Knuckle Highway"
+          summary={['No account needed', 'Progress stays on your device', 'Ads by Google AdMob', 'Online races with friends']}
+          intro="Knuckle Highway is our motorcycle combat racing game. This section explains what information it uses and why.">
+          <Section title="Information stored on your device">
+            <p>Your progress (coins, bikes, paint jobs, upgrades, unlocked roads, best results, daily rewards and challenges, World Series results and settings) and the player name you choose are saved on your device. The game does not ask for your real name, email address, contacts or precise location, and it does not send gameplay statistics to us.</p>
+          </Section>
+          <Section title="Online races with friends">
+            <p>When you race friends online with a room code, the game sends your player name, your bike and its paint colour, and your position, speed and moves during the race to our game server, so the other players in your room can see you. The connection is encrypted. The server passes this to the players in your room while the race is running and does not save it. The server is hosted by Render, which may keep short-term technical logs such as IP addresses to run its service. Learn more at <a href="https://render.com/privacy">render.com/privacy</a>.</p>
+            <p>When you race on the same Wi-Fi, the same information goes directly between the phones on your network and not through our server. Player names are checked for offensive words. You don't have to play online, and the rest of the game works without it.</p>
+          </Section>
+          <Section title="Advertising">
+            <p>{ADMOB_TEXT}</p>
+            <p>Learn more at <a href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a>.</p>
+          </Section>
+          <Section title="In-app purchases">
+            <p>Purchases (such as removing ads or buying coins) are processed by Google Play on Android and by the App Store on iPhone and iPad. The game only receives confirmation of what you bought so it can give you the item. We never see your payment details. You can restore one-time purchases from the game's settings.</p>
+          </Section>
+          <Section title="Children">
+            <p>The game includes fighting with fists and weapons and is not directed at children under 13. If you believe a child has shared personal information with us, contact us and we will help remove it.</p>
+          </Section>
+        </GamePolicy>
+
+        <Card id="privacy-all" className="mt-8 scroll-mt-20 bg-background/60">
+          <CardHeader><CardTitle className="font-display text-2xl">All games</CardTitle></CardHeader>
           <CardContent className="space-y-8 leading-relaxed">
-            <p className="text-muted-foreground">
-              Lumen Vault (“the game”) is made by Mirrorlight Studio (“we”, “us”) for Android, iPhone and iPad. This policy explains what information the game uses and why.
-            </p>
-
-            <Section title="Information stored on your device">
-              <p>Your progress (rooms completed, stars, hearts, lantern colours, secrets found and settings) is saved on your device. A backup copy is kept in the app's own storage on the same device, so progress isn't lost if the phone clears space. This progress stays on your device: we do not run our own servers, and the game does not ask for your name, email address, contacts or precise location. The services listed below (Google AdMob, Google Analytics for Firebase and RevenueCat) run on their own servers.</p>
-            </Section>
-
-            <Section title="Advertising">
-              <p>The game shows ads provided by Google AdMob. To show and measure ads, AdMob may collect your device's advertising ID, approximate location based on your IP address, and information about how you interact with ads and the app. Where required by law, you are asked for consent before personalised ads are shown.</p>
-              <p>On iPhone and iPad, the game asks your permission before your device's advertising identifier can be used (App Tracking Transparency). If you choose “Ask App Not to Track”, you still see ads, but they are not personalised.</p>
-              <p>Learn more at <a href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a>.</p>
-            </Section>
-
-            <Section title="Gameplay statistics">
-              <p>From version 1.3, the game sends anonymous gameplay events, such as when a room is started, won or failed, to Google Analytics for Firebase. This shows us which rooms are too hard so we can improve them. Firebase may also receive basic device information such as device model, operating system version, approximate region and an app instance ID. Collection of the advertising ID by Firebase and ad personalisation signals are turned off, and these statistics are not linked to your name.</p>
-              <p>We also use Firebase Remote Config to adjust game settings, such as how often ads appear, without an app update. Learn more at <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>.</p>
-            </Section>
-
-            <Section title="In-app purchases">
-              <p>Purchases are processed by Google Play on Android and by the App Store on iPhone and iPad. We use RevenueCat to confirm purchases and restore them on a new device. RevenueCat receives an anonymous app user ID and your purchase history, but not your payment details. Learn more at <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a>.</p>
-            </Section>
-
-            <Section title="Children">
-              <p>The game is suitable for all ages but is not directed at children under 13. If you believe a child has shared personal information with us, contact us and we will help remove it.</p>
-            </Section>
-
             <Section title="Your choices">
               <ul className="list-disc space-y-2 pl-5">
                 <li>You can reset or limit your advertising ID in your device settings.</li>
@@ -237,11 +279,9 @@ function Privacy() {
                 <li>You can contact us at any time with questions or requests about your data.</li>
               </ul>
             </Section>
-
             <Section title="Changes">
               <p>If this policy changes, we will update this page and the date above.</p>
             </Section>
-
             <Section title="Contact">
               <p>Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
             </Section>
