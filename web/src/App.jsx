@@ -213,7 +213,7 @@ function Privacy() {
     <section id="privacy" className="scroll-mt-16 border-t border-border/60 bg-card/30">
       <div className="mx-auto max-w-3xl px-5 py-20">
         <h2 className="font-display text-3xl font-bold">Privacy policy</h2>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: November 17, 2026</p>
+        <p className="mt-2 text-sm text-muted-foreground">Last updated: November 20, 2026</p>
         <p className="mt-6 leading-relaxed text-muted-foreground">
           This policy covers every game made by Mirrorlight Studio (“we”, “us”). Each game has its own section below, because each one uses different services. The last section applies to all of our games.
         </p>
@@ -235,6 +235,7 @@ function Privacy() {
           </Section>
           <Section title="Gameplay statistics">
             <p>From version 1.3, the game sends anonymous gameplay events, such as when a room is started, won or failed, to Google Analytics for Firebase. This shows us which rooms are too hard so we can improve them. Firebase may also receive basic device information such as device model, operating system version, approximate region and an app instance ID. Collection of the advertising ID by Firebase and ad personalisation signals are turned off, and these statistics are not linked to your name.</p>
+            <p>We link Google Analytics for Firebase to Google Ads so we can count how many installs our own Lumen Vault ads bring in (the first time the game is opened). Ad personalisation signals stay off, and we do not share this data with other advertisers.</p>
             <p>We also use Firebase Remote Config to adjust game settings, such as how often ads appear, without an app update. Learn more at <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>.</p>
           </Section>
           <Section title="In-app purchases">
