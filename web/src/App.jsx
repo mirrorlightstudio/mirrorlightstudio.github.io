@@ -213,7 +213,7 @@ function Privacy() {
     <section id="privacy" className="scroll-mt-16 border-t border-border/60 bg-card/30">
       <div className="mx-auto max-w-3xl px-5 py-20">
         <h2 className="font-display text-3xl font-bold">Privacy policy</h2>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: November 20, 2026</p>
+        <p className="mt-2 text-sm text-muted-foreground">Last updated: November 25, 2026</p>
         <p className="mt-6 leading-relaxed text-muted-foreground">
           This policy covers every game made by Mirrorlight Studio (“we”, “us”). Each game has its own section below, because each one uses different services. The last section applies to all of our games.
         </p>
@@ -247,10 +247,14 @@ function Privacy() {
         </GamePolicy>
 
         <GamePolicy id="privacy-knuckle-highway" name="Knuckle Highway"
-          summary={['No account needed', 'Progress stays on your device', 'Ads by Google AdMob', 'Online races with friends']}
+          summary={['No account needed', 'Progress stays on your device', 'Ads by Google AdMob', 'Anonymous gameplay stats', 'Online races with friends']}
           intro="Knuckle Highway is our motorcycle combat racing game. This section explains what information it uses and why.">
           <Section title="Information stored on your device">
-            <p>Your progress (coins, bikes, paint jobs, upgrades, unlocked roads, best results, daily rewards and challenges, World Series results and settings) and the player name you choose are saved on your device. The game does not ask for your real name, email address, contacts or precise location, and it does not send gameplay statistics to us.</p>
+            <p>Your progress (coins, bikes, paint jobs, upgrades, unlocked roads, best results, daily rewards and challenges, World Series results and settings) and the player name you choose are saved on your device. The game does not ask for your real name, email address, contacts or precise location.</p>
+          </Section>
+          <Section title="Gameplay statistics">
+            <p>From version 0.3.6, the game sends anonymous gameplay events to Google Analytics, a Google service we use through Firebase. These say which road, bike, difficulty and weather you raced with, how the race ended (your place, time, knockouts, crashes and coins won, or how far you got if you left early), and when you open the shop, watch an ad or make a purchase. This shows us which roads are too hard and what to improve.</p>
+            <p>Each install gets a random ID made by the game, so we can count players without knowing who they are. Your player name, real name and contact details are never sent, and the advertising ID is not used for these statistics. The events travel over an encrypted connection, and Google may see your IP address as part of that connection. We use these statistics only to improve the game, not for advertising. Learn more at <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>.</p>
           </Section>
           <Section title="Online races with friends">
             <p>When you race friends online with a room code, the game sends your player name, your bike and its paint colour, and your position, speed and moves during the race to our game server, so the other players in your room can see you. The connection is encrypted. The server passes this to the players in your room while the race is running and does not save it. The server is hosted by Render, which may keep short-term technical logs such as IP addresses to run its service. Learn more at <a href="https://render.com/privacy">render.com/privacy</a>.</p>
