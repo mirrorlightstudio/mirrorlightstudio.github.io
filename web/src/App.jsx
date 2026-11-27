@@ -2,6 +2,7 @@ import { ShieldCheck, Footprints, Sparkles, KeyRound, Languages, WifiOff, Mail, 
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
+import { ComingSoonGames, GamePage } from './ComingSoon'
 
 const APPSTORE_URL = 'https://apps.apple.com/app/id6819255416'
 const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.ronitgupta.lumenvault'
@@ -47,13 +48,13 @@ function Nav() {
   return (
     <header className="sticky top-0 z-20 border-b border-border/60 bg-background/80 backdrop-blur">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <a href="#top" className="flex items-center gap-2.5 font-display text-base font-bold tracking-wide no-underline">
+        <a href="/" className="flex items-center gap-2.5 font-display text-base font-bold tracking-wide no-underline">
           <Logo /> Mirrorlight Studio
         </a>
         <div className="flex items-center gap-1 text-sm">
-          <Button variant="ghost" size="sm" href="#games">Games</Button>
-          <Button variant="ghost" size="sm" href="#privacy">Privacy</Button>
-          <Button variant="ghost" size="sm" href="#contact" className="hidden sm:inline-flex">Contact</Button>
+          <Button variant="ghost" size="sm" href="/#games">Games</Button>
+          <Button variant="ghost" size="sm" href="/#privacy">Privacy</Button>
+          <Button variant="ghost" size="sm" href="/#contact" className="hidden sm:inline-flex">Contact</Button>
         </div>
       </nav>
     </header>
@@ -175,6 +176,8 @@ function Games() {
       </Card>
 
       <div className="mt-12 flex justify-center"><StoreButtons /></div>
+
+      <ComingSoonGames />
     </section>
   )
 }
@@ -310,21 +313,23 @@ function Contact() {
   )
 }
 
-export default function App() {
+export default function App({ page }) {
   return (
     <>
       <Nav />
       <main>
-        <Hero />
-        <Stats />
-        <Games />
-        <Privacy />
-        <Contact />
+        {page ? <GamePage slug={page} /> : <>
+          <Hero />
+          <Stats />
+          <Games />
+          <Privacy />
+          <Contact />
+        </>}
       </main>
       <footer className="border-t border-border/60">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-8 text-sm text-muted-foreground sm:flex-row">
           <span className="flex items-center gap-2"><Logo /> © 2026 Mirrorlight Studio</span>
-          <span className="flex gap-4"><a href="#privacy">Privacy policy</a><a href={`mailto:${EMAIL}`}>Contact</a></span>
+          <span className="flex gap-4"><a href="/#privacy">Privacy policy</a><a href={`mailto:${EMAIL}`}>Contact</a></span>
         </div>
       </footer>
     </>

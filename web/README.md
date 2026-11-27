@@ -3,7 +3,7 @@
 Source for https://mirrorlightstudio.github.io (React + Tailwind + shadcn/ui).
 The page is prerendered to plain HTML, so it needs no JavaScript and `#privacy` works for store reviewers.
 
-Edit `src/App.jsx`, then:
+Edit `src/App.jsx` (home page) or `src/ComingSoon.jsx` (coming-soon games: home cards + one page each at /<slug>/), then:
 
     cd web
     npm install
